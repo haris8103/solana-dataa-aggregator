@@ -1,0 +1,13 @@
+[package]
+name = "solana_data_aggregator"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+postgres = "0.19.10"
+r2d2 = "0.8.10"
+r2d2_postgres = "0.18.2"
+solana-client = "2.2.4"
+solana-program = "2.2.1"
+solana-sdk = "2.2.1"
+solana-transaction-status-client-types = "2.2.4"
