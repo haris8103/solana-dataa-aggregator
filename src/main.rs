@@ -1,12 +1,12 @@
 use postgres::{Config, NoTls};
 use solana_client::rpc_client::RpcClient;
-use solana_sdk::lamports;
+
 use solana_transaction_status_client_types::UiTransactionEncoding;
 
 use r2d2::Pool;
 use r2d2_postgres::PostgresConnectionManager;
-use std::thread;
-
+use std::{thread, time};
+//HUzaTjk2sQopRURDu7Uio7GF5DXV49dAqFxaxcWChvWC
 fn main() {
     // Create RPC client
     let rpc = RpcClient::new("https://api.devnet.solana.com".to_string());
@@ -86,6 +86,8 @@ fn main() {
         for handle in handles {
             handle.join().unwrap();
         }
+        let ten_millis = time::Duration::from_secs(30);
+        thread::sleep(ten_millis);
     }
-    println!("✅ All transactions inserted.");
+    // println!("✅ All transactions inserted.");
 }
